@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReiPatcher</name>
+    </assembly>
+    <members>
+        <member name="T:ReiPatcher.RPConfig">
+            <summary>
+                ReiPatcher Configuration Module
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.RPConfig.ConfigFile">
+            <summary>
+                Configuration File
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.RPConfig.ConfigFilePath">
+            <summary>
+                Configuration File Path
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.RPConfig.GetConfig(System.String,System.String)">
+            <summary>
+                Gets a Configuration file Value
+            </summary>
+            <param name="sec">Section</param>
+            <param name="key">Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:ReiPatcher.RPConfig.RequestAssembly(System.String)">
+            <summary>
+                Requests an Assembly to be Patched
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:ReiPatcher.RPConfig.Save">
+            <summary>
+                Save Configuration File
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.RPConfig.SetConfig(System.String,System.String,System.String)">
+            <summary>
+                Sets a Configuration file Value
+            </summary>
+            <param name="sec">Section</param>
+            <param name="key">Key</param>
+            <param name="val">Value</param>
+        </member>
+        <member name="T:ReiPatcher.Utils.Extensions">
+            <summary>
+                LINQ Extension
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Utils.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+                LINQ Foreach Extension
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="function"></param>
+        </member>
+        <member name="M:ReiPatcher.Utils.Extensions.None``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                LINQ !Any Static Extension
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReiPatcher.Utils.Extensions.None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+                LINQ !Any Static Extension
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReiPatcher.Utils.Extensions.PadCenter(System.String,System.Int32,System.Char)">
+            <summary>
+                Center-Alings a String
+            </summary>
+            <param name="text">String</param>
+            <param name="width">Total Width</param>
+            <param name="pad">Padding Character</param>
+            <returns></returns>
+        </member>
+        <member name="T:ReiPatcher.Patch.PatchBase">
+            <summary>
+                Base Class for Patches
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatchBase.AssembliesDir">
+            <summary>
+                Assemblies Directory
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatchBase.Name">
+            <summary>
+                Patch Name
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatchBase.Version">
+            <summary>
+                Patch Version
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.CanPatch(ReiPatcher.Patch.PatcherArguments)">
+            <summary>
+                Determines if a <see cref="T:ReiPatcher.Patch.PatchBase" /> can Patch an <see cref="T:Mono.Cecil.AssemblyDefinition" />
+            </summary>
+            <param name="args">Assembly</param>
+            <returns></returns>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.Patch(ReiPatcher.Patch.PatcherArguments)">
+            <summary>
+                Patches an <see cref="T:Mono.Cecil.AssemblyDefinition" />
+            </summary>
+            <param name="args">Assembly</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.PostPatch">
+            <summary>
+                Post Patching (After Save) Operations
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.PrePatch">
+            <summary>
+                Pre Patching (After Loading) Operations
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.GetPatchedAttributes(Mono.Cecil.IMemberDefinition)">
+            <summary>
+                Gets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />s
+            </summary>
+            <param name="definition"></param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.GetPatchedAttributes(Mono.Cecil.AssemblyDefinition)">
+            <summary>
+                Gets a <see cref="T:Mono.Cecil.AssemblyDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />s
+            </summary>
+            <param name="definition"></param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.PropertyDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="member">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.MethodDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="member">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.TypeDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="member">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.FieldDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="member">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.EventDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.IMemberDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="member">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchBase.SetPatchedAttribute(Mono.Cecil.AssemblyDefinition,System.String)">
+            <summary>
+                Sets a <see cref="T:Mono.Cecil.AssemblyDefinition" /> <see cref="T:ReiPatcher.Patch.PatchedAttribute" />
+            </summary>
+            <param name="assembly">Member</param>
+            <param name="info">Tag</param>
+        </member>
+        <member name="T:ReiPatcher.Patch.PatcherArguments">
+            <summary>
+                Patcher Arguments
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatcherArguments.Assembly">
+            <summary>
+                Mono.Cecil <see cref="T:Mono.Cecil.AssemblyDefinition" />
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatcherArguments.FromBackup">
+            <summary>
+                Is Backup Assembly
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatcherArguments.Location">
+            <summary>
+                Assembly Locations
+            </summary>
+        </member>
+        <member name="P:ReiPatcher.Patch.PatcherArguments.WasPatched">
+            <summary>
+                Assembly Was Patched
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatcherArguments.#ctor(Mono.Cecil.AssemblyDefinition,System.String,System.Boolean)">
+            <summary>
+                Insantiates a new <see cref="T:ReiPatcher.Patch.PatcherArguments" />
+            </summary>
+            <param name="def">Definition</param>
+            <param name="loc">Location</param>
+            <param name="fromBackup">Loaded from Backup</param>
+        </member>
+        <member name="T:ReiPatcher.Patch.PatchedAttribute">
+            <summary>
+                <see cref="T:ReiPatcher.Patch.PatchedAttribute" /> Attribute
+            </summary>
+        </member>
+        <member name="F:ReiPatcher.Patch.PatchedAttribute.Info">
+            <summary>
+                Information
+            </summary>
+        </member>
+        <member name="M:ReiPatcher.Patch.PatchedAttribute.#ctor(System.String)">
+            <summary>
+                Instantiates a PatcherAttribute
+            </summary>
+            <param name="info"></param>
+        </member>
+    </members>
+</doc>
